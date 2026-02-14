@@ -1,6 +1,6 @@
 # 🏃 Appel AS - Application de Scan QR Code pour Association Sportive
 
-Application web moderne pour gérer les présences des élèves de l'association sportive via le scan de QR codes. Les données sont automatiquement enregistrées dans Google Sheets.
+Application web moderne pour gérer les présences des élèves de l'association sportive via le scan du QR code personnel de l'élève généré à partir de l'application : app_Qr_Codes_Generator_listes_AS . Les données sont automatiquement enregistrées dans un classeur Google Sheets mais sans comporter aucune donnée personnelle de l'élève dans le respect du règlement sur la protection des données (RGPD) des élèves. Ces données peuvent être récupérées ensuite localement grâce à un classeur Excel intégrant la liste des élèves licenciés UNSS de l'établissement comme base de données.
 
 ## 📱 Fonctionnalités
 
@@ -16,29 +16,32 @@ Application web moderne pour gérer les présences des élèves de l'association
 
 ### Étape 1 : Configurer Google Sheets
 
-1. Ouvrez votre Google Sheet : [Lien du classeur](https://docs.google.com/spreadsheets/d/1PMGS3tkb0ftG_Tbz3L1CDd2c_AFxLJCyC61g-Pg3mUY/edit?usp=sharing)
+1. Créer votre classeur Google Sheet avec comme structure de feuille :
+- Colonne A : N° d'entrée (de séance)
+- Colonne B : Date (de la séance)
+- Colonne C : N° personnel de l'élève (ex : numéro de licence UNSS)
 
-2. Allez dans **Extensions** > **Apps Script**
+3. Allez dans **Extensions** > **Apps Script**
 
-3. Supprimez tout le code par défaut et copiez-collez le contenu du fichier `google-apps-script.js`
+4. Supprimez tout le code par défaut et copiez-collez le contenu du fichier `google-apps-script.js`
 
-4. (Optionnel) Exécutez la fonction `initializeSheet()` pour formater la feuille :
+5. (Optionnel) Exécutez la fonction `initializeSheet()` pour formater la feuille :
    - Sélectionnez `initializeSheet` dans le menu déroulant
    - Cliquez sur ▶️ Exécuter
    - Autorisez l'application si demandé
 
-5. Cliquez sur **Déployer** > **Nouveau déploiement**
+6. Cliquez sur **Déployer** > **Nouveau déploiement**
 
-6. Cliquez sur l'icône ⚙️ à côté de "Sélectionner un type" et choisissez **Application Web**
+7. Cliquez sur l'icône ⚙️ à côté de "Sélectionner un type" et choisissez **Application Web**
 
-7. Configurez le déploiement :
+8. Configurez le déploiement :
    - **Description** : Appel AS API
    - **Exécuter en tant que** : Moi
    - **Qui a accès** : Tout le monde
    
-8. Cliquez sur **Déployer**
+9. Cliquez sur **Déployer**
 
-9. **IMPORTANT** : Copiez l'URL du déploiement qui apparaît (elle ressemble à : `https://script.google.com/macros/s/AKfycby.../exec`)
+10. **IMPORTANT** : Copiez l'URL du déploiement qui apparaît (elle ressemble à : `https://script.google.com/macros/s/AKfycby.../exec`)
 
 ### Étape 2 : Configurer l'application HTML
 
